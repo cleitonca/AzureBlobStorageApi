@@ -2,6 +2,8 @@
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
+using System.Reflection.Metadata;
+
 
 namespace AzureBlobStorageApi.Controllers
 {
@@ -59,6 +61,28 @@ namespace AzureBlobStorageApi.Controllers
             blob.DeleteIfExists();
 
             return NoContent();
+        }
+
+        [HttpGet("Listar")]
+        public IActionResult Listar()
+        {
+            List<BlobDto> blobsDto = new List<BlobDto>();
+
+            BlobContainerClient container = new(_connectionString, _containerName);
+
+            foreach (var blob in container.GetBlobs()) 
+            {
+                blobsDto.Add(new BlobDto
+                {
+                    Name = blob.Name,
+                    Tipo = blob.Properties.ContentType,
+                    Uri = container.Uri.AbsoluteUri + "/" + blob.Name
+
+                });
+
+            }
+
+            return Ok(blobsDto);
         }
     }
 }
