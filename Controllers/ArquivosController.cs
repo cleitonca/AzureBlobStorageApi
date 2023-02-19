@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 
 namespace AzureBlobStorageApi.Controllers
 {
@@ -15,7 +18,21 @@ namespace AzureBlobStorageApi.Controllers
             _containerName = configuration.GetValue<string>("BlobContainerName");
         }
 
+        [HttpPost("Upload")]
+        public IActionResult UploadArquivo(IFormFile arquivo)
+        {
+            BlobContainerClient container = new(_connectionString, _containerName);
+            BlobClient blob = container.GetBlobClient(arquivo.FileName);
 
+            using var data = arquivo.OpenReadStream();
+            blob.Upload(data, new BlobUploadOptions
+            {
+                HttpHeaders = new BlobHttpHeaders { ContentType = arquivo.ContentType }
+            }); ;
+
+            return Ok(blob.Uri.ToString());
+
+        }
 
     }
 }
