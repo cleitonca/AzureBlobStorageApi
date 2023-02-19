@@ -34,5 +34,21 @@ namespace AzureBlobStorageApi.Controllers
 
         }
 
+        [HttpGet("Download/{nome}")]
+        public IActionResult DownloadArquivo(string nome)
+        {
+            BlobContainerClient container = new(_connectionString, _containerName);
+            BlobClient blob = container.GetBlobClient(nome);
+
+            if (!blob.Exists()) 
+            {
+                return BadRequest();
+            }
+
+            var retorno = blob.DownloadContent();
+
+            return File(retorno.Value.Content.ToArray(), retorno.Value.Details.ContentType, blob.Name);
+        }
+
     }
 }
