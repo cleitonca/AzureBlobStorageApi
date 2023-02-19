@@ -50,5 +50,15 @@ namespace AzureBlobStorageApi.Controllers
             return File(retorno.Value.Content.ToArray(), retorno.Value.Details.ContentType, blob.Name);
         }
 
+        [HttpDelete("Apagar/{nome}")]
+        public IActionResult DeletarArquivo(string nome)
+        {
+            BlobContainerClient container = new(_connectionString, _containerName);
+            BlobClient blob = container.GetBlobClient(nome);
+
+            blob.DeleteIfExists();
+
+            return NoContent();
+        }
     }
 }
