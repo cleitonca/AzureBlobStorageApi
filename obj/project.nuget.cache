@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ysbrbSu2AhxwhQueQ9CWWmLPf2/6p7kPC+hwBzy9TRB3nG6YuLlc9T6CVs/DFDJezfvjyKiQ6kvWE7N9PAprNQ==",
+  "success": true,
+  "projectFilePath": "D:\\Estudo de Desenvolvimento\\CSharp\\AzureBlobStorageApi\\AzureBlobStorageApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cleiton\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Cleiton\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Cleiton\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Cleiton\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Cleiton\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Cleiton\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
